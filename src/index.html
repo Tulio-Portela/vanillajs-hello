@@ -1,29 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./4geeks.ico" />
-  </head>
-  <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
-    </div>
-  </body>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Excusas</title>
+  <style>
+    #excuse {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 2px solid black;
+      text-align: center;
+    }
+
+    #excuse-text {
+      font-size: 25px;
+      font-weight: bold;
+      display: block;
+    }
+  </style>
+</head>
+
+<body onload="generateExcuse()">
+  <div id="excuse">
+    <p>Excusa: <span id="excuse-text"></span></p>
+  </div>
+  <script>
+    let who = ['Mi perro', 'Mi abuela', 'El cartero', 'Mi pájaro'];
+    let action = ['se comió', 'orinó en', 'aplastó', 'rompió'];
+    let what = ['mi tarea', 'mi teléfono', 'el carro'];
+    let when = ['antes de la clase', 'mientras dormía', 'mientras hacía ejercicio', 'durante mi almuerzo', 'mientras rezaba'];
+
+    function generateExcuse() {
+      let randomWho = who[Math.floor(Math.random() * who.length)];
+      let randomAction = action[Math.floor(Math.random() * action.length)];
+      let randomWhat = what[Math.floor(Math.random() * what.length)];
+      let randomWhen = when[Math.floor(Math.random() * when.length)];
+
+      let excuse = randomWho + ' ' + randomAction + ' ' + randomWhat + ' ' + randomWhen;
+      document.getElementById('excuse-text').innerHTML = excuse;
+    }
+  </script>
+</body>
+
 </html>
